@@ -105,7 +105,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
       <DuelCard
         teamOnedata={teamOnePassingLeaders}
         teamTwodata={teamTwoPassingLeaders}
-        title="PASSING LEADERS"
+        title="Passing Leaders"
       />
     );
   };
@@ -118,7 +118,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
       <DuelCard
         teamOnedata={teamOneRushingLeaders}
         teamTwodata={teamTwoRushingLeaders}
-        title="RUSHING LEADERS"
+        title="Rushing Leaders"
       />
     );
   };
@@ -131,7 +131,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
       <DuelCard
         teamOnedata={teamOneReceivingLeaders}
         teamTwodata={teamTwoReceivingLeaders}
-        title="RECEIVING LEADERS"
+        title="Receiving Leaders"
       />
     );
   };
@@ -144,7 +144,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
       <DuelCard
         teamOnedata={teamOneTouchdownLeaders}
         teamTwodata={teamTwoTouchdownLeaders}
-        title="TOUCHDOWN LEADERS"
+        title="Touchdown Leaders"
       />
     );
   };
@@ -153,7 +153,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
     <div className="flex w-full flex-col">
       <div className="flex flex-row mr-4">
         <TeamStats teamData={teamOneData} />
-        <div className="divider divider-horizontal font-bold italic text-3xl">
+        <div className="divider divider-horizontal font-bold italic text-3xl text-red-800">
           v/s
         </div>
         <TeamStats teamData={teamTwoData} />

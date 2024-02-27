@@ -4,7 +4,7 @@ const TeamStats = ({ teamData }: { teamData: Team }) => {
   return (
     <div className="grid flex-grow card bg-base-300 rounded-box place-items-center">
       {/* Team One Table */}
-      <h2 className="text-white font-bold text-center text-3xl m-2 italic">
+      <h2 className="text-red-800 font-bold text-center text-4xl m-2">
         {`${teamData.name}(${teamData.teamSpread})`}
       </h2>
       <div className="stats stats-vertical shadow m-2">

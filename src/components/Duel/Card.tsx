@@ -16,13 +16,13 @@ const DuelCard = ({ teamOnedata, teamTwodata, title }: CardProps) => {
           <div className="flex items-center flex-col w-1/2">
             {teamOnedata.map((player: any) => (
               <div key={player.id} className="my-3">
-                <p className="text-white font-bold">{player.name}</p>
+                <p className="text-blue-300 font-bold">{player.name}</p>
                 {player.playerDetails && (
-                  <p className="text-gray-200">{player.playerDetails}</p>
+                  <p className="text-blue-400">{player.playerDetails}</p>
                 )}
                 <div>
-                  <p className="text-gray-300 font-semibold">Last 5 games:</p>
-                  <p className="text-gray-400 italic">
+                  <p className="text-blue-500 font-semibold">Last 5 games:</p>
+                  <p className="text-blue-600 italic">
                     {player.last5Games.join(", ")}
                   </p>
                 </div>
@@ -37,13 +37,13 @@ const DuelCard = ({ teamOnedata, teamTwodata, title }: CardProps) => {
           <div className="flex items-center flex-col w-1/2">
             {teamTwodata.map((player: any) => (
               <div className="flex flex-col items-end my-3" key={player.id}>
-                <p className="text-white font-bold">{player.name}</p>
+                <p className="text-red-400 font-bold">{player.name}</p>
                 {player.playerDetails && (
-                  <p className="text-gray-200">{player.playerDetails}</p>
+                  <p className="text-red-500">{player.playerDetails}</p>
                 )}
                 <div>
-                  <p className="text-gray-300 font-semibold">Last 5 games:</p>
-                  <p className="text-gray-400 italic">
+                  <p className="text-red-600 font-semibold">Last 5 games:</p>
+                  <p className="text-red-700 italic">
                     {player.last5Games.join(", ")}
                   </p>
                 </div>

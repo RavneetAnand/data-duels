@@ -13,6 +13,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      gradientColorStopPositions: {
+        33: "33%",
+      },
+      colors: {
+        "accent-1": "bg-gradient-to-r from-cyan-500 to-blue-500",
+      },
     },
   },
   plugins: [require("daisyui")],
