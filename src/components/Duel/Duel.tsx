@@ -78,7 +78,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
     setTeamTwoData(team02Data);
   }, [data]);
 
-  if (isLoading || !teamOneData || !teamTwoData) {
+  if (isLoading) {
     return <ErrorMessage message="Loading..." />;
   }
 
@@ -89,6 +89,12 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
   if (!data) {
     return (
       <ErrorMessage message="Please bear with us. We are still gathering data." />
+    );
+  }
+
+  if (!teamOneData || !teamTwoData) {
+    return (
+      <ErrorMessage message="We are unable to fetch the data at this time." />
     );
   }
 

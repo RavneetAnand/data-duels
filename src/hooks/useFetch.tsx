@@ -1,3 +1,5 @@
+import { TeamStatsType } from "@/components/Duel/Duel";
+import { Team } from "@/components/Teams";
 import { useState, useEffect } from "react";
 
 type FetchProps = {
@@ -7,7 +9,7 @@ type FetchProps = {
 };
 
 export const useFetch = ({ url, options, params }: FetchProps) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Team[] | TeamStatsType[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 

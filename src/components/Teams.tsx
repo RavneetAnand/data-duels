@@ -85,6 +85,7 @@ const Teams = ({
                   </button>
                 ) : (
                   <button
+                    data-testid={`select-team-${id}`}
                     className="btn btn-primary"
                     onClick={() => teamSelected(id)}
                   >
