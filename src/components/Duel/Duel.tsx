@@ -94,7 +94,7 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
 
   if (!teamOneData || !teamTwoData) {
     return (
-      <ErrorMessage message="We are unable to fetch the data at this time." />
+      <ErrorMessage message="We are unable to fetch the data at this time. Make sure you have selected two teams." />
     );
   }
 

@@ -61,7 +61,6 @@ const Tabs = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        {/* <header className="flex h-14 lg:h-[30px] items-center gap-4 border-b px-6"></header> */}
         {tabSelected === Tab.TEAMS ? (
           <Teams
             selectedTeams={selectedTeams}
