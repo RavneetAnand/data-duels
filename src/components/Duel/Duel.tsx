@@ -9,6 +9,7 @@ import {
 import DuelCard from "./Card";
 import TeamStats from "./TeamStats";
 import { playersURL } from "@/utils/constants";
+import ErrorMessage from "../ErrorMessage";
 
 export type PlayerStats = {
   id: number;
@@ -77,24 +78,18 @@ const Duel: React.FC<DuelProps> = ({ teams }: DuelProps) => {
     setTeamTwoData(team02Data);
   }, [data]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (isLoading || !teamOneData || !teamTwoData) {
+    return <ErrorMessage message="Loading..." />;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <ErrorMessage message={`Error: ${error.message}`} />;
   }
 
-  if (!data || (data as []).length < 2) {
+  if (!data) {
     return (
-      <div>
-        Please bear with us. We are still gathering data for the selected teams.
-      </div>
+      <ErrorMessage message="Please bear with us. We are still gathering data." />
     );
-  }
-
-  if (!teamOneData || !teamTwoData) {
-    return <div>Something went wrong. Please try again later.</div>;
   }
 
   const renderPassingLeaders = () => {

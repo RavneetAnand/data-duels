@@ -5,6 +5,7 @@ import { teamsURL } from "@/utils/constants";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Tab } from "./Tabs";
+import ErrorMessage from "./ErrorMessage";
 
 export type Team = {
   id: number;
@@ -38,15 +39,17 @@ const Teams = ({
   }, [data]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <ErrorMessage message="Loading..." />;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <ErrorMessage message={`Error: ${error.message}`} />;
   }
 
   if (!data) {
-    return <div>Please bear with us. We are still gathering data for you.</div>;
+    return (
+      <ErrorMessage message="Please bear with us. We are still gathering data." />
+    );
   }
 
   const teamSelected = (id: number) => {
