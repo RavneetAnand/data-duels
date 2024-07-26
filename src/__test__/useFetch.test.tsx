@@ -1,5 +1,5 @@
+import { useFetch } from "@/hooks/useFetch";
 import { renderHook, waitFor } from "@testing-library/react";
-import { useFetch } from "./useFetch";
 
 let mockFetch: jest.Mock = jest.fn();
 
@@ -15,9 +15,7 @@ describe("useFetch", () => {
       json: jest.fn().mockResolvedValue(mockData),
     });
 
-    const { result } = renderHook(() =>
-      useFetch({ url: "https://example.com", options: { method: "GET" } })
-    );
+    const { result } = renderHook(() => useFetch({ url: "https://example.com", options: { method: "GET" } }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBeFalsy();
@@ -30,9 +28,7 @@ describe("useFetch", () => {
     const mockError = new Error("fetch failed");
     mockFetch.mockRejectedValueOnce(() => mockError);
 
-    const { result } = renderHook(() =>
-      useFetch({ url: "https://example.com", options: { method: "GET" } })
-    );
+    const { result } = renderHook(() => useFetch({ url: "https://example.com", options: { method: "GET" } }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBeFalsy();

@@ -1,9 +1,8 @@
 import { render, waitFor, screen } from "@testing-library/react";
-import Duel from "./Duel";
-import { useFetch } from "../../hooks/useFetch";
-import { TeamStatsType } from "./Duel";
 import "@testing-library/jest-dom";
-import { mockDuelData } from "@/testUtils/mocks";
+import { mockDuelData } from "@/__test__/testUtils/mocks";
+import { useFetch } from "@/hooks/useFetch";
+import Duel, { TeamStatsType } from "@/components/Duel/Duel";
 
 jest.mock("../../hooks/useFetch");
 
@@ -39,9 +38,7 @@ describe("Duel", () => {
 
     renderDuel();
 
-    await waitFor(() =>
-      expect(screen.getByText(`Error: ${error.message}`)).toBeInTheDocument()
-    );
+    await waitFor(() => expect(screen.getByText(`Error: ${error.message}`)).toBeInTheDocument());
   });
 
   it("should render team stats and duel cards when data is available", async () => {

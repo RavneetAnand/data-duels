@@ -9,15 +9,12 @@ export const getPassingLeadersData = (data: any) => {
 
       const playerDetails = `${player.passingLine} - ${player.touchdownsPerGame} TD/G - ${player.stats[0].passingYards} YDS/G`;
 
-      const last5Games = player.stats.reduce(
-        (statsArr: string[], stat: PlayerStats) => {
-          if (stat.passingYards) {
-            statsArr.push(`${stat.passingYards} YDS - ${stat.touchDowns} TD`);
-          }
-          return statsArr;
-        },
-        []
-      );
+      const last5Games = player.stats.reduce((statsArr: string[], stat: PlayerStats) => {
+        if (stat.passingYards) {
+          statsArr.push(`${stat.passingYards} YDS - ${stat.touchDowns} TD`);
+        }
+        return statsArr;
+      }, []);
 
       acc.push({ id, name, playerDetails, last5Games });
     }
@@ -34,15 +31,12 @@ export const getRushingLeadersData = (data: any) => {
 
       const playerDetails = `${player.rushingLine} - ${player.rushingAttemptsPerGame} TD/G - ${player.rushingYardsPerGame} YDS/G`;
 
-      const last5Games = player.stats.reduce(
-        (statsArr: string[], stat: PlayerStats) => {
-          if (stat.rushingYards) {
-            statsArr.push(`${stat.rushingYards} YDS - ${stat.attempts} Att`);
-          }
-          return statsArr;
-        },
-        []
-      );
+      const last5Games = player.stats.reduce((statsArr: string[], stat: PlayerStats) => {
+        if (stat.rushingYards) {
+          statsArr.push(`${stat.rushingYards} YDS - ${stat.attempts} Att`);
+        }
+        return statsArr;
+      }, []);
 
       acc.push({ id, name, playerDetails, last5Games });
     }
@@ -59,17 +53,12 @@ export const getReceivingLeadersData = (data: any) => {
 
       const playerDetails = `${player.receivingLine} - ${player.receptionsPerGame} REC/G - ${player.receivingYardsPerGame} YDS/G`;
 
-      const last5Games = player.stats.reduce(
-        (statsArr: string[], stat: PlayerStats) => {
-          if (stat.receivingYards !== undefined) {
-            statsArr.push(
-              `${stat.receivingYards} YDS - ${stat.receptions} REC`
-            );
-          }
-          return statsArr;
-        },
-        []
-      );
+      const last5Games = player.stats.reduce((statsArr: string[], stat: PlayerStats) => {
+        if (stat.receivingYards !== undefined) {
+          statsArr.push(`${stat.receivingYards} YDS - ${stat.receptions} REC`);
+        }
+        return statsArr;
+      }, []);
 
       acc.push({ id, name, playerDetails, last5Games });
     }
@@ -84,15 +73,12 @@ export const getTouchdownLeadersData = (data: any) => {
 
       const name = `${player.firstName} ${player.lastName}`;
 
-      const last5Games = player.stats.reduce(
-        (statsArr: string[], stat: PlayerStats) => {
-          if (stat.touchDowns !== undefined) {
-            statsArr.push(`${stat.touchDowns} TD`);
-          }
-          return statsArr;
-        },
-        []
-      );
+      const last5Games = player.stats.reduce((statsArr: string[], stat: PlayerStats) => {
+        if (stat.touchDowns !== undefined) {
+          statsArr.push(`${stat.touchDowns} TD`);
+        }
+        return statsArr;
+      }, []);
 
       acc.push({ id, name, last5Games });
     }

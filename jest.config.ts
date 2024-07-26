@@ -12,7 +12,6 @@ const config: Config = {
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
-    "^.+\\.js$": "babel-jest",
   },
   moduleNameMapper: {
     "\\.(css|less)$": "identity-obj-proxy",

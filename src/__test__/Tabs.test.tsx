@@ -1,8 +1,8 @@
 import { render, fireEvent, screen } from "@testing-library/react";
-import Tabs from "./Tabs";
 import "@testing-library/jest-dom";
 import { useFetch } from "@/hooks/useFetch";
-import { mockDuelData } from "@/testUtils/mocks";
+import { mockDuelData } from "@/__test__/testUtils/mocks";
+import Tabs from "@/components/Tabs";
 
 jest.mock("../hooks/useFetch");
 
