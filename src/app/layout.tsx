@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Package2Icon } from "@/utils/Icons/Package2Icon";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex h-[60px] items-center justify-center border px-6 gap-2 text-white font-semibold">
+          <Package2Icon className="h-6 w-6" />
+          <span>NFL</span>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

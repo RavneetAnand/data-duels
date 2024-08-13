@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 import { useFetch } from "@/hooks/useFetch";
 import { mockTeamData } from "@/__test__/testUtils/mocks";
 import { Tab } from "@/components/Tabs";
-import Teams from "@/components/Teams";
+import TeamsLayout from "@/components/Teams";
 
 jest.mock("../hooks/useFetch");
 
@@ -35,12 +35,16 @@ describe("Teams", () => {
       error: null,
     });
 
-    render(<Teams selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />);
+    render(
+      <TeamsLayout selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />
+    );
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
   it("should display teams when data is fetched", async () => {
-    render(<Teams selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />);
+    render(
+      <TeamsLayout selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />
+    );
     await waitFor(() => expect(screen.getByText(mockTeamData[0].name)).toBeInTheDocument());
   });
 
@@ -51,19 +55,25 @@ describe("Teams", () => {
       error: new Error("An error occurred"),
     });
 
-    render(<Teams selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />);
+    render(
+      <TeamsLayout selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />
+    );
     expect(screen.getByText("Error: An error occurred")).toBeInTheDocument();
   });
 
   it("should call setSelectedTeams when a team is selected", async () => {
-    render(<Teams selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />);
+    render(
+      <TeamsLayout selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />
+    );
     await waitFor(() => fireEvent.click(screen.getByTestId("select-team-1")));
     expect(setSelectedTeams).toHaveBeenCalledWith([mockTeamData[0].id]);
   });
 
   it("should call setTabSelected when Compare button is clicked", async () => {
     selectedTeams = [mockTeamData[0].id, mockTeamData[1].id];
-    render(<Teams selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />);
+    render(
+      <TeamsLayout selectedTeams={selectedTeams} setSelectedTeams={setSelectedTeams} setTabSelected={setTabSelected} />
+    );
     await waitFor(() => fireEvent.click(screen.getByText("Compare")));
     expect(setTabSelected).toHaveBeenCalledWith(Tab.DUEL);
   });

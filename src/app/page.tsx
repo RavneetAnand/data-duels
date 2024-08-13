@@ -1,7 +1,13 @@
-import Tabs from "@/components/Tabs";
+import Link from "next/link";
+import Teams from "./Teams";
+import { Package2Icon } from "@/utils/Icons/Package2Icon";
 
 const Home: React.FC = () => {
-  return <Tabs />;
+  return (
+    <>
+      <Teams />
+    </>
+  );
 };
 
 export default Home;
